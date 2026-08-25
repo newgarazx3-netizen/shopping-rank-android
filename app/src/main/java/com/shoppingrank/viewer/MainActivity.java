@@ -43,12 +43,17 @@ public class MainActivity extends Activity {
           "qa('.compact-top-actions button').forEach(function(b){sp(b,'min-height','25px');sp(b,'height','25px');sp(b,'padding','0 7px');sp(b,'font-size','9px');});" +
           "var bar=q('.mobile-filter-toolbar');sp(bar,'min-height','28px');sp(bar,'padding','3px 7px');sp(bar,'margin-bottom','4px');" +
           "var panel=q('.compact-filter-panel');if(panel){sp(panel,'display','grid');sp(panel,'grid-template-columns','minmax(0,1fr) minmax(0,1fr)');sp(panel,'gap','6px 7px');sp(panel,'padding','7px');sp(panel,'margin-bottom','5px');}" +
-          "['.filter-date','.filter-slot','.filter-platform','.filter-keyword','.filter-layout','.filter-own'].forEach(function(s){qa('.compact-filter-panel '+s).forEach(function(el){sp(el,'grid-column','auto');});});" +
+          "['.filter-date','.filter-slot','.filter-platform','.filter-keyword','.filter-layout','.filter-own'].forEach(function(s){qa('.compact-filter-panel '+s).forEach(function(el){sp(el,'grid-column','auto');sp(el,'grid-row','auto');});});" +
+          "var date=q('.compact-filter-panel .filter-date');if(date){sp(date,'grid-column','1');sp(date,'grid-row','1');}" +
+          "var slot=q('.compact-filter-panel .filter-slot');if(slot){sp(slot,'grid-column','2');sp(slot,'grid-row','1');}" +
+          "var platform=q('.compact-filter-panel .filter-platform');if(platform){sp(platform,'grid-column','1');sp(platform,'grid-row','2');}" +
+          "var keyword=q('.compact-filter-panel .filter-keyword');if(keyword){sp(keyword,'grid-column','2');sp(keyword,'grid-row','2');}" +
+          "var layout=q('.compact-filter-panel .filter-layout');if(layout){sp(layout,'grid-column','1');sp(layout,'grid-row','3');}" +
           "qa('.compact-filter-panel label').forEach(function(el){sp(el,'gap','3px');sp(el,'font-size','10px');});" +
           "qa('.compact-filter-panel select').forEach(function(el){sp(el,'height','34px');sp(el,'min-height','34px');sp(el,'padding','0 8px');sp(el,'font-size','11px');sp(el,'border-radius','8px');});" +
-          "var own=q('.compact-filter-panel .filter-own');if(own){sp(own,'height','34px');sp(own,'min-height','34px');sp(own,'align-self','end');sp(own,'display','flex');sp(own,'align-items','center');sp(own,'justify-content','flex-start');sp(own,'gap','6px');sp(own,'padding','0 8px');sp(own,'border','1px solid #cfd9e7');sp(own,'border-radius','8px');sp(own,'background','#fff');sp(own,'white-space','nowrap');}" +
+          "var own=q('.compact-filter-panel .filter-own');if(own){sp(own,'grid-column','2');sp(own,'grid-row','3');sp(own,'height','34px');sp(own,'min-height','34px');sp(own,'align-self','end');sp(own,'display','flex');sp(own,'align-items','center');sp(own,'justify-content','flex-start');sp(own,'gap','6px');sp(own,'padding','0 8px');sp(own,'border','1px solid #cfd9e7');sp(own,'border-radius','8px');sp(own,'background','#fff');sp(own,'white-space','nowrap');}" +
           "var cb=q('#ownOnlyFilter');if(cb){sp(cb,'width','15px');sp(cb,'height','15px');sp(cb,'min-width','15px');sp(cb,'min-height','15px');sp(cb,'flex','0 0 15px');sp(cb,'margin','0');sp(cb,'padding','0');}" +
-          "var models=q('.compact-filter-panel .filter-models');if(models){sp(models,'grid-column','1 / -1');sp(models,'gap','3px');}" +
+          "var models=q('.compact-filter-panel .filter-models');if(models){sp(models,'grid-column','1 / -1');sp(models,'grid-row','4');sp(models,'gap','3px');}" +
           "var mh=q('.model-filter-heading');sp(mh,'font-size','9px');" +
           "var ms=q('.filter-models .model-filter-status');sp(ms,'font-size','8px');" +
           "var mc=q('.model-filter-controls');if(mc){sp(mc,'display','grid');sp(mc,'grid-template-columns','minmax(0,1fr) auto');sp(mc,'gap','4px');sp(mc,'align-items','stretch');}" +
@@ -115,7 +120,7 @@ public class MainActivity extends Activity {
         settings.setDisplayZoomControls(false);
         settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        settings.setUserAgentString(settings.getUserAgentString() + " ShoppingRankViewer/0.3");
+        settings.setUserAgentString(settings.getUserAgentString() + " ShoppingRankViewer/0.4");
 
         CookieManager.getInstance().setAcceptCookie(true);
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
